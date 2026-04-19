@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Chatbot {
+
+    public static String getResponse(String input) {
+        input = input.toLowerCase();
+
+        if (input.contains("hello") || input.contains("hi")) {
+            return "Hello! How can I help you?";
+        } 
+        else if (input.contains("how are you")) {
+            return "I'm just a program, but I'm doing great!";
+        } 
+        else if (input.contains("your name")) {
+            return "I'm CodeAlpha Chatbot 🤖";
+        } 
+        else if (input.contains("help")) {
+            return "I can answer basic questions. Try asking about me!";
+        } 
+        else if (input.contains("bye")) {
+            return "Goodbye! Have a nice day!";
+        } 
+        else {
+            return "Sorry, I didn't understand that. Try asking something else.";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String userInput;
+
+        System.out.println("🤖 Chatbot Started (type 'bye' to exit)");
+
+        while (true) {
+            System.out.print("You: ");
+            userInput = sc.nextLine();
+
+            String response = getResponse(userInput);
+            System.out.println("Bot: " + response);
+
+            if (userInput.equalsIgnoreCase("bye")) {
+                break;
+            }
+        }
+    }
+}
